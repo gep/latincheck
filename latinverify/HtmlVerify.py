@@ -6,12 +6,8 @@ import re as regex
 class HtmlVerify(object):
 
     def __init__(self):
-
-
         self.non_latin_regex = regex.compile(ur'[\u0400-\u04FF\u0500-\u052F]')
         self.default_encoding = 'utf-8'
-
-
 
     def search(self, html):
         """

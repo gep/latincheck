@@ -6,6 +6,6 @@ if [ `whoami` != "root" ]; then
 fi
 
 apt-get update
-apt-get install python-pip
+apt-get install -y python-pip
 pip install Django==1.8
-apt-get install postgresql
+apt-get install -y postgresql
