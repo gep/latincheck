@@ -1,8 +1,10 @@
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
+
 .vagrant
 .idea
+db.sqlite3
 
 # C extensions
 *.so
