@@ -1,10 +1,12 @@
+__author__ = 'gep'
+
 from django.views.generic.edit import BaseFormView
 from django.http.response import JsonResponse
 from mainapp.forms import ProcessDomainForm
 from latinverify import HtmlVerify, UrlContentGetter
 
 
-class ProcessDomainFormView(BaseFormView):
+class ProcessUrlFormView(BaseFormView):
     form_class = ProcessDomainForm
     content_type = None
 
@@ -38,9 +40,10 @@ class ProcessDomainFormView(BaseFormView):
 
         html_verificator = HtmlVerify()
 
-        occurances = html_verificator.search(contents_getter.get_contents(form.clean().get('url')))
+        content = contents_getter.get_contents(form.clean().get('url'))
+        occurrences = html_verificator.search(content)
 
-        return JsonResponse(occurances)
+        return JsonResponse({'errors': {}, 'occurrences': occurrences, 'html': content})
 
     def get_form_kwargs(self):
         """
