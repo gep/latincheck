@@ -14,6 +14,10 @@ $(function(){
 
     $('#main-form').submit(function(){
         var form = $(this);
+        if (form.attr('isloading')){
+            return false;
+        }
+        form.attr('isloading', 'isloading');
         progressBar.show();
         codeContainer.hide();
         $('div#code-container').remove();
@@ -28,7 +32,14 @@ $(function(){
         successAlertContainer.addClass('hide');
         $.ajax({
             url: form.attr('action') + '?' + form.serialize(),
+            async: true,
+            error: function(){
+                form.removeAttr('isloading');
+                progressBar.hide();
+                errorMessageContainer.text('');
+            },
             success: function(data){
+                form.removeAttr('isloading');
                 progressBar.hide();
                 errorMessageContainer.text('');
                 if (data.errors && data.errors instanceof Object && !$.isEmptyObject(data.errors)){
