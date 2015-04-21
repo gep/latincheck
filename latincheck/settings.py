@@ -23,7 +23,12 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'ax9v73c&(+y^!$z3tsi^af+u2h#hwu+7od%ck9bbdiq@p5(r#!'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+import socket
+
+if socket.gethostname() == 'lifeline-latincheck':
+    DEBUG = TEMPLATE_DEBUG = True
+else:
+    DEBUG = TEMPLATE_DEBUG = False
 
 ALLOWED_HOSTS = []
 
@@ -101,3 +106,5 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 
 STATIC_URL = '/static/'
+
+STATIC_ROOT = os.path.join(BASE_DIR, "static/")
