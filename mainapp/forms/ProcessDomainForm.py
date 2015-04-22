@@ -25,5 +25,5 @@ class ProcessDomainForm(forms.Form):
         return {
             'errors': {},
             'occurrences': occurrences,
-            'content': (self.clean().get('return_contents') and [content] or [False])[0]
+            'content': (self.clean().get('return_contents') and [content] or [''])[0]
         }
