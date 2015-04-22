@@ -3,16 +3,16 @@
  */
 
 $(function(){
-//    SyntaxHighlighter.all();
 
     var progressBar = $('#progress-bar'),
+        form = $('#main-form'),
         alertContainer = $('div.alert-danger'),
         errorMessageContainer = $('#errorMessage'),
         successAlertContainer = $('div.alert-success'),
         wellContainer = $('div.well'),
         codeContainer = $('pre#code-container');
 
-    $('#main-form').submit(function(){
+    form.submit(function(){
         var form = $(this);
         if (form.attr('isloading')){
             return false;
@@ -66,13 +66,15 @@ $(function(){
                 codeContainer.attr('class', codeContainer.attr('class') + ']');
                 codeContainer.show();
                 codeContainer.html(data.html);
-//                codeContainer.find('code').html(data.html);
-//                Prism.highlightAll();
                 SyntaxHighlighter.highlight();
             }
         });
         return false;
     });
+
+    if (form.find('input[name=url]').val()){
+        form.submit();
+    }
 
 });
 

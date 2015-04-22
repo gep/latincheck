@@ -1,6 +1,8 @@
 __author__ = 'andrewsemikov'
 import urllib2
 import socket
+from StringIO import StringIO
+import gzip
 
 
 class UrlContentGetter(object):
@@ -16,7 +18,13 @@ class UrlContentGetter(object):
 
         try:
             response = urllib2.urlopen(request, timeout=self.timeout)
-            response_actual_string = response.read()
+
+            if response.info().get('Content-Encoding') == 'gzip':
+                buffer = StringIO(response.read())
+                gzipped_content = gzip.GzipFile(fileobj=buffer)
+                response_actual_string = gzipped_content.read()
+            else:
+                response_actual_string = response.read()
 
             # make html instance of unicode
             response_actual_string = (
@@ -42,12 +50,15 @@ class UrlContentGetter(object):
         :return:
         """
         try:
-            return html.decode(encoding=encoding, errors='replace')
+            return html.decode(encoding=encoding, errors='strict')
         except UnicodeError:
             try:
                 return html.decode(encoding='cp1251')
             except UnicodeError:
-                return html.decode(encoding='koi8_r')
+                try:
+                    return html.decode(encoding='koi8_r')
+                except UnicodeError:
+                    return html.decode(encoding=encoding, errors='replace')
 
 
 class UrlContentGetterException(Exception):

@@ -9,6 +9,6 @@ urlpatterns = [
 
     # url(r'^admin/', include(admin.site.urls)),
     url(r'^validate', ProcessUrlFormView.as_view(), name='process_url'),
-    url(r'^$', IndexView.as_view(), name='home'),
+    url(r'^', IndexView.as_view(), name='home'),
     url(r'^about$', AboutView.as_view(), name='about'),
 ]

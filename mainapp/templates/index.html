@@ -11,7 +11,7 @@
                 <div class="input-group input-group-lg">
                   <span class="input-group-addon" id="sizing-addon1">Type any URL</span>
                   <input type="hidden" name="return_contents" value="1" />
-                  <input type="text" name="url" class="form-control" placeholder="http://google.com" aria-describedby="sizing-addon1">
+                  <input type="text" name="url" {% if url %}value="{{ url }}"{% endif %} class="form-control" placeholder="http://google.com" aria-describedby="sizing-addon1">
                   <span class="input-group-btn">
                     <button type="submit" class="btn btn-default">And verify!</button>
                   </span>
