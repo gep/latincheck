@@ -30,7 +30,7 @@ if socket.gethostname() == 'lifeline-latincheck':
 else:
     DEBUG = TEMPLATE_DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['latincheck.lifeline.su']
 
 
 # Application definition
