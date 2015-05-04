@@ -32,7 +32,6 @@ else:
 
 ALLOWED_HOSTS = ['latincheck.lifeline.su']
 
-
 # Application definition
 
 INSTALLED_APPS = (
