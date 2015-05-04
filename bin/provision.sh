@@ -18,9 +18,6 @@ touch /var/projects/lifeline-latincheck/logs/uwsgi/latincheck.log
 chmod -R 777 /var/projects/lifeline-latincheck/logs/uwsgi/latincheck.log
 touch /var/projects/lifeline-latincheck/logs/uwsgi/uwsgi-emperor.log
 chmod -R 777 /var/projects/lifeline-latincheck/logs/uwsgi/uwsgi-emperor.log
-uwsgi --emperor /etc/uwsgi/vassals --uid www-data --gid www-data --daemonize /var/projects/lifeline-latincheck/logs/uwsgi/uwsgi-emperor.log
 ln -s /var/projects/lifeline-latincheck/config/nginx/lifeline-latincheck /etc/nginx/sites-enabled/
 
-
-cd /var/projects/lifeline-latincheck
-python manage.py collectstatic --noinput
+/var/projects/lifeline-latincheck/bin/deploy.sh
