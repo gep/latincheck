@@ -1,27 +1,33 @@
 {% extends 'base.html' %}
-
-{% block title %}About cyrillic online validation{% endblock %}
+{% load i18n %}
+{% block title %}{% trans "About cyrillic online validation" %}{% endblock %}
 
 {% block content %}
       <div class="well">
-        <h1>About</h1>
+        <h1>{% trans "About" %}</h1>
+        <p>{% trans "This site is created to help developers quickly detect unpleasant cyrillic symbols on the given URL." %}</p>
         <p>
-            This site is created to help developers quickly detect unpleasant cyrillic symbols on the given URL.
-        </p>
-        <p>
-            The algorithm works as follows:
+            {% trans "The algorithm works as follows" %}:
             <ol>
-                <li>The system tries to unzip the contents by the given URL if it's gzipped</li>
-                <li>Then the system tries to decode HTML using UTF-8 decoder</li>
-                <li>If failed, then it tries to use CP1251 decoder. If it's failed then KOI8-R, and finally tries UTF-8 decoder and replaces unpleasant symbols</li>
-                <li>On the last step the system calculates the occurrences of cyrillic symbols: line + cyrillic character position(s)</li>
+                <li>{% trans "The system tries to unzip the contents by the given URL if it's gzipped" %}</li>
+                <li>{% trans "Then the system tries to decode HTML using UTF-8 decoder" %}</li>
+                <li>{% trans "If failed, then it tries to use CP1251 decoder. If it's failed then KOI8-R, and finally tries UTF-8 decoder and replaces unpleasant symbols" %}</li>
+                <li>{% trans "On the last step the system calculates the occurrences of cyrillic symbols: line + cyrillic character position(s)" %}</li>
             </ol>
         </p>
         <p>
-            You can try checking URLS using browser address bar: <a href="{% url 'home' %}?url=google.com">http://latincheck.lifeline.su?url=google.com</a> or just typing in the URL on the <a href="{% url 'home' %}">Home</a> page.
+            {% url 'home' as url_home %}
+            {% trans "You can try checking URLS using browser address bar:" %}
+            <a href="{% url 'home' %}?url=google.com">http://latincheck.lifeline.su?url=google.com</a>
+            {% trans "or just typing in the URL on the" %} <a href="{% url 'home' %}">{% trans "Home" %}</a>
+            {% trans "page" %}.
         </p>
         <p>
-            The service has a simple API request for those who do not like GUI. Detect cyrillic symbols just using <a target="_blank" href="{% url 'process_url' %}?url=habrahabr.ru&return_contents=false">Validate</a> request. It returns a JSON object with occurrences line by line.
+            {% trans "The service has a simple API request for those who do not like GUI. Detect cyrillic symbols just using" %}
+            <a target="_blank" href="{% url 'process_url' %}?url=habrahabr.ru&return_contents=false">
+                {% trans "Validate" %}
+            </a>
+            {% trans "request. It returns a JSON object with occurrences line by line." %}
         </p>
       </div>
 {% endblock %}

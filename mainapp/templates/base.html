@@ -1,14 +1,16 @@
+{% spaceless %}
 {% load staticfiles %}
-<!DOCTYPE html>
-
-<html lang="en" mode="normal"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+{% load i18n %}
+{% get_current_language as LANGUAGE_CODE %}
+{% endspaceless %}<!DOCTYPE html>
+<html lang="{{ LANGUAGE_CODE }}" mode="normal"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <meta name="description" content="Verify online any domain for containing non latin characters">
-    <meta name="author" content="Andrey Semikov">
-    <meta name="keywords" content="verification,online,non-latin,cyrillic">
+    <meta name="description" content="{% trans "Verify online any domain for containing non latin characters"%}">
+    <meta name="author" content="{% trans "Andrey Semikov" %}">
+    <meta name="keywords" content="{% trans "verification,online,non-latin,cyrillic" %}">
 
     <link rel="icon" href="{% static "img/favicon.ico" %}">
 
@@ -43,18 +45,32 @@
       <div class="header clearfix">
         <nav>
           <ul class="nav nav-pills pull-right">
-            <li role="presentation" {% if active_tab == 'index' %}class="active"{% endif %}><a href="{% url 'home' %}">Home</a></li>
-            <li role="presentation" {% if active_tab == 'about' %}class="active"{% endif %}><a href="{% url 'about' %}">About</a></li>
+            <li role="presentation" {% if active_tab == 'index' %}class="active"{% endif %}><a href="{% url 'home' %}">{% trans "Home" %}</a></li>
+            <li role="presentation" {% if active_tab == 'about' %}class="active"{% endif %}><a href="{% url 'about' %}">{% trans "About" %}</a></li>
           </ul>
         </nav>
-        <h3 class="text-muted">Online cyrillic symbols detection</h3>
+        <h3 class="text-muted">{% trans "Online cyrillic symbols detection" %}</h3>
       </div>
 
       {% block content %}
       {% endblock %}
 
       <footer class="footer">
-        <p>© Lifeline.su 2015 <a href="mailto:andrew.semikov@gmail.com">Andrey Semikov</a></p>
+        <p>© Lifeline.su 2015 <a href="mailto:andrew.semikov@gmail.com">{% trans "Andrey Semikov" %}</a>
+            {% get_available_languages as languages %}
+            <span class="pull-right">
+                {% for lang_code, lang_name in languages %}
+                    {% language lang_code %}
+                        {% if not forloop.first %}|{% endif %}
+                        {% if lang_code == LANGUAGE_CODE %}
+                            {{ lang_name }}
+                        {% else %}
+                            <a href="{% url 'home' %}">{{ lang_name }}</a>
+                        {% endif %}
+                    {% endlanguage %}
+                {% endfor %}
+            </span>
+        </p>
       </footer>
 
     </div>

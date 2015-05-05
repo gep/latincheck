@@ -11,3 +11,6 @@ uwsgi --emperor /etc/uwsgi/vassals --uid www-data --gid www-data --daemonize /va
 echo "Generating assets..."
 cd /var/projects/lifeline-latincheck
 python manage.py collectstatic --noinput
+
+echo "Compiling translations..."
+python manage.py compilemessages

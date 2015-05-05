@@ -1,0 +1,168 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-05-05 11:31+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+
+#: latincheck/settings.py:99
+msgid "Russian"
+msgstr "Русский"
+
+#: latincheck/settings.py:100
+msgid "English"
+msgstr "Английский"
+
+#: mainapp/templates/404.html:3
+msgid "Page is not found"
+msgstr "Страница не найдена"
+
+#: mainapp/templates/404.html:7
+msgid "404. Page is not found"
+msgstr "404. Страница не найдена"
+
+#: mainapp/templates/404.html:8
+msgid "The page you are looking for does not exist."
+msgstr "Страница, на которую вы сейчас зашли, не существует"
+
+#: mainapp/templates/about.html:3
+msgid "About cyrillic online validation"
+msgstr "Об онлайн валидации кириллицы"
+
+#: mainapp/templates/about.html:7 mainapp/templates/base.html:49
+msgid "About"
+msgstr "О сервисе"
+
+#: mainapp/templates/about.html:8
+msgid ""
+"This site is created to help developers quickly detect unpleasant cyrillic "
+"symbols on the given URL."
+msgstr ""
+"Этот сайт создан для того, чтобы помочь разработчикам обнаружить на сайте "
+"ненужные символы кириллицы"
+
+#: mainapp/templates/about.html:10
+msgid "The algorithm works as follows"
+msgstr "Алгоритм работает следующим образом"
+
+#: mainapp/templates/about.html:12
+msgid "The system tries to unzip the contents by the given URL if it's gzipped"
+msgstr ""
+"Если содержимое сайта зазиповано, то система пытается декомпрессировать его"
+
+#: mainapp/templates/about.html:13
+msgid "Then the system tries to decode HTML using UTF-8 decoder"
+msgstr "Затем система пытается декодировать HTML, используя UTF-8 декодер"
+
+#: mainapp/templates/about.html:14
+msgid ""
+"If failed, then it tries to use CP1251 decoder. If it's failed then KOI8-R, "
+"and finally tries UTF-8 decoder and replaces unpleasant symbols"
+msgstr ""
+"Если предыдущие попытки не увенчались успехом, то тогда используется декодер "
+"CP1251. Если же и он зафейлился, то тогда KOI8-R, и наконец в случае "
+"тотального провала пытается декодировать с помощью UTF-8, заменяя символы с "
+"ошибками"
+
+#: mainapp/templates/about.html:15
+msgid ""
+"On the last step the system calculates the occurrences of cyrillic symbols: "
+"line + cyrillic character position(s)"
+msgstr ""
+"На последнем шаге система считает совпадения по найденным символам "
+"кириллицы: номер строки + позиция(ии) кириллической буквы"
+
+#: mainapp/templates/about.html:20
+msgid "You can try checking URLS using browser address bar:"
+msgstr "Можете проверить URL, используя адресную строку броузера"
+
+#: mainapp/templates/about.html:22
+msgid "or just typing in the URL on the"
+msgstr "или введя URL на"
+
+#: mainapp/templates/about.html:22 mainapp/templates/base.html:48
+msgid "Home"
+msgstr "Главная"
+
+#: mainapp/templates/about.html:23
+msgid "page"
+msgstr "страница"
+
+#: mainapp/templates/about.html:26
+msgid ""
+"The service has a simple API request for those who do not like GUI. Detect "
+"cyrillic symbols just using"
+msgstr ""
+"У данного сервиса есть простой API запрос для тех, кто не любит GUI. "
+"Обнаружить кириллицу, просто используя"
+
+#: mainapp/templates/about.html:28
+msgid "Validate"
+msgstr "Проверить"
+
+#: mainapp/templates/about.html:30
+msgid "request. It returns a JSON object with occurrences line by line."
+msgstr ""
+"запрос. Он возвращает JSON объект с найденными совпадениями строка за строкой"
+
+#: mainapp/templates/base.html:11
+msgid "Verify online any domain for containing non latin characters"
+msgstr "Проверь онлайн любой домен на содержание кириллицы"
+
+#: mainapp/templates/base.html:12 mainapp/templates/base.html.py:59
+msgid "Andrey Semikov"
+msgstr "Андрей Семиков"
+
+#: mainapp/templates/base.html:13
+msgid "verification,online,non-latin,cyrillic"
+msgstr "проверка,онлайн,нелатиница,кириллица"
+
+#: mainapp/templates/base.html:52
+msgid "Online cyrillic symbols detection"
+msgstr "Онлайн детектор кириллицы"
+
+#: mainapp/templates/index.html:3
+msgid "Check online any domain for having non-latin symbols"
+msgstr "Проверь онлайн любой домен на содержание нелатинских символов"
+
+#: mainapp/templates/index.html:8
+msgid "Cyrillic symbols detection"
+msgstr "Онлайн детектор кириллицы"
+
+#: mainapp/templates/index.html:9
+msgid ""
+"You can quickly verify any website for containing cyrillic symbols in its "
+"contents by simply typing the URL below."
+msgstr ""
+"Вы можете быстро проверить любой сайт на наличие в его содержимом "
+"кириллических символов, просто введя URL."
+
+#: mainapp/templates/index.html:13
+msgid "Type any URL"
+msgstr "Введи любой URL"
+
+#: mainapp/templates/index.html:17
+msgid "And verify!"
+msgstr "И проверь!"
+
+#: mainapp/templates/index.html:33
+msgid "Errors"
+msgstr "Ошибки"
+
+#: mainapp/templates/index.html:38
+msgid "No cyrillic symbols found!"
+msgstr "Не было найдено кириллицы"

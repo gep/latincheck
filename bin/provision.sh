@@ -9,6 +9,7 @@ apt-get update
 apt-get install -y python-pip
 apt-get install -y python2.7-dev
 pip install Django==1.8
+apt-get -y install gettext
 apt-get -y install nginx
 pip install uwsgi
 mkdir /etc/uwsgi
