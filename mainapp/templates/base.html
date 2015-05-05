@@ -57,17 +57,17 @@
 
       <footer class="footer">
         <p>© Lifeline.su 2015 <a href="mailto:andrew.semikov@gmail.com">{% trans "Andrey Semikov" %}</a>
-            {% get_available_languages as languages %}
             <span class="pull-right">
+                {% get_available_languages as languages %}
                 {% for lang_code, lang_name in languages %}
-                    {% language lang_code %}
-                        {% if not forloop.first %}|{% endif %}
-                        {% if lang_code == LANGUAGE_CODE %}
-                            {{ lang_name }}
-                        {% else %}
-                            <a href="{% url 'home' %}">{{ lang_name }}</a>
-                        {% endif %}
-                    {% endlanguage %}
+                        {% language lang_code %}
+                            {% if not forloop.first %}|{% endif %}
+                            {% if lang_code == LANGUAGE_CODE %}
+                                {{ lang_name }}
+                            {% else %}
+                                <a href="{% url 'home' %}">{{ lang_name }}</a>
+                            {% endif %}
+                        {% endlanguage %}
                 {% endfor %}
             </span>
         </p>
