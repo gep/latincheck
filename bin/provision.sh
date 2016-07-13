@@ -17,8 +17,9 @@ mkdir /etc/uwsgi/vassals
 ln -s /var/projects/lifeline-latincheck/config/uwsgi/uwsgi.ini /etc/uwsgi/vassals/
 touch /var/projects/lifeline-latincheck/logs/uwsgi/latincheck.log
 chmod -R 777 /var/projects/lifeline-latincheck/logs/uwsgi/latincheck.log
-touch /var/projects/lifeline-latincheck/logs/uwsgi/uwsgi-emperor.log
-chmod -R 777 /var/projects/lifeline-latincheck/logs/uwsgi/uwsgi-emperor.log
+mkdir /var/logs/uwsgi
+touch /var/logs/uwsgi/uwsgi-emperor.log
+chmod -R 777 /var/logs/uwsgi/uwsgi-emperor.log
 ln -s /var/projects/lifeline-latincheck/config/nginx/lifeline-latincheck /etc/nginx/sites-enabled/
 
 /var/projects/lifeline-latincheck/bin/deploy.sh
